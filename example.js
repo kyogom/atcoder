@@ -11,7 +11,7 @@ function Main(input) {
 
 // AtCoder提出用
 // Main(require("fs").readFileSync("/dev/stdin", "utf8"));
-const input = 
+var input = 
 `
 1
 2 3
