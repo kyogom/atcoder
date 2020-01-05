@@ -13,9 +13,6 @@ function Main(input) {
 
 // AtCoder提出用
 // Main(require("fs").readFileSync("/dev/stdin", "utf8"));
-const input = 
-`
+Main(`
 4 5
-`.replace('\n', '') //最初の改行を削除
-
-Main(input)
+`.replace('\n', ''))

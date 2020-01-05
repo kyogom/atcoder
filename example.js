@@ -9,13 +9,14 @@ function Main(input) {
 	console.log('%d %s',a+b+c,s);
 }
 
-// AtCoder提出用
-// Main(require("fs").readFileSync("/dev/stdin", "utf8"));
-var input = 
-`
+/*
+提出時はコメントアウトを外す
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+*/
+
+// テスト用の標準入力
+Main(`
 1
 2 3
 test
-`.replace('\n', '') //最初の改行を削除
-
-Main(input)
+`.replace('\n', ''))
