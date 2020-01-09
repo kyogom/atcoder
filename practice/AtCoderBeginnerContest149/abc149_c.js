@@ -2,11 +2,22 @@
 function Main(input) {
 	var lines = input.split("\n");
 	var words = lines[0].split(" ");
-	var a = Number(lines[0]);
-	var b = Number(words[0]);
-	var c = Number(words[1]);
-	var s = lines[2];
-	console.log('%d %s',a+b+c,s);
+	var x = Number(words[0]);
+	while(1) {
+		var cand = x++
+		if(isPrime(cand)){
+			console.log(cand)
+			return
+		}
+	}
+	function isPrime(num) {
+		for(var d = 2; d < num; d++) {
+			if(num % d === 0) {
+				return false
+			}
+		}
+		return true
+	}
 }
 
 /*
@@ -16,7 +27,5 @@ Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 
 // テスト用の標準入力
 Main(`
-1
-2 3
-test
+99992
 `.replace('\n', ''))
