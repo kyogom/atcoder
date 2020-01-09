@@ -1,7 +1,7 @@
 // inputに入力データ全体が入る
 function Main(input) {
-	lines = input.split("\n");
-	words = lines[1].split(" ");
+	var lines = input.split("\n");
+	var words = lines[0].split(" ");
 	var a = Number(lines[0]);
 	var b = Number(words[0]);
 	var c = Number(words[1]);
