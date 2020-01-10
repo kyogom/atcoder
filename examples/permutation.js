@@ -10,5 +10,5 @@ var permutation = (result, pre, post, n) => {
     }
     return result;
 };
-    
-console.log(permutation([], [], ['a', 'b', 'c', 'd'], 4))
+var p = permutation([], [], ['a', 'b', 'c', 'd'], 4)
+console.log(p)

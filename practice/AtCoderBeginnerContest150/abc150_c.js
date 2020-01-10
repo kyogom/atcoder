@@ -1,12 +1,33 @@
 // inputに入力データ全体が入る
 function Main(input) {
 	var lines = input.split("\n");
-	var words = lines[0].split(" ");
-	var a = Number(lines[0]);
-	var b = Number(words[0]);
-	var c = Number(words[1]);
-	var s = lines[2];
-	console.log('%d %s',a+b+c,s);
+	var n = lines[0].split(" ").map(el => Number(el))[0]
+	var Ps = Number(lines[1].replace(/ /g, ''))
+	var Qs = Number(lines[2].replace(/ /g, ''))
+
+	var permutation = (result, pre, post, n) => {
+		if (n > 0) {
+			post.forEach((_, i) => {
+				var rest = [...post];
+				var elem = rest.splice(i, 1);
+				permutation(result, [...pre, ...elem], rest, n - 1);
+			});
+		} else {
+			result.push(Number(pre.join('')));
+		}
+		return result;
+	};
+
+	var makeArray = n => {
+		var rs = []
+		for(var i = 1; i <= n; i++) {
+			rs.push('' + i)
+		}
+		return rs
+	}
+
+	var p = permutation([], [], makeArray(n), n)
+	console.log(Math.abs(p.indexOf(Ps) - p.indexOf(Qs)))
 }
 
 /*
@@ -16,7 +37,7 @@ Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 
 // テスト用の標準入力
 Main(`
-1
-2 3
-test
+2
+2 1
+1 2
 `.replace('\n', ''))
