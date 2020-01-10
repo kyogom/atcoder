@@ -25,7 +25,11 @@ function Main(input) {
 	for(var i = 0; i <= n - k + 1; i++) {
 		if(myBestHand[i] === myBestHand[i + k]){
 			// k間隔で2連続で同じ手なら、2回目に負ける
-			myBestHand = replaceAt(myBestHand, i + k, not(myBestHand[i+k])) 
+			if(myBestHand.length > i+k+k) {
+				myBestHand = replaceAt(myBestHand, i + k, not2(myBestHand[i+k], myBestHand[i+k+k])) 
+			} else {
+				myBestHand = replaceAt(myBestHand, i + k, not(myBestHand[i+k])) 
+			}
 			
 		} 
 	}
@@ -39,13 +43,17 @@ function Main(input) {
 		return string.substr(0, index) + char + string.substr(index + 1);
 	}
 
-	// ミス...
-	// ここで次の手の邪魔にならない手を選ぶ必要がある
 	function not(hand) {
 		var hands = ['r', 's', 'p']
 		if(hand === hands[0]) return hands[1]
 		if(hand === hands[1]) return hands[2]
 		if(hand === hands[2]) return hands[0]
+	}
+
+	// ここで次の手の邪魔にならない手を選ぶ必要がある
+	function not2(hand, hand2) {
+		var hands = 'rsp'
+		return hands.replace(hand, '').replace(hand2, '')[0]
 	}
 
 	function beater(hand) {
