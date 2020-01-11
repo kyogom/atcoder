@@ -2,11 +2,34 @@
 function Main(input) {
 	var lines = input.split("\n");
 	var words = lines[0].split(" ");
-	var a = Number(lines[0]);
-	var b = Number(words[0]);
-	var c = Number(words[1]);
-	var s = lines[2];
-	console.log('%d %s',a+b+c,s);
+	var n = Number(words[0]);
+	var m = Number(words[1]);
+	var a = lines[1].split(" ").map(n => n / 2)
+
+	// 最小公倍数
+	// least common multiple
+	var lcm = 1;
+
+	a.forEach(num => {
+		lcm = calc_lcm(lcm, num)
+	});
+	console.log(lcm)
+	
+	// 最大公約数
+	// greatest common divisor
+	function calc_gcd(a, b) {
+		while ( b != 0 ) {
+			t = b;
+			b = a % b;
+			a = t;
+		}
+		return a;
+	}
+
+	function calc_lcm(i, j) {
+		var gcd = calc_gcd(i, j);
+		return i / gcd * j;
+	}
 }
 
 /*
@@ -16,7 +39,6 @@ Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 
 // テスト用の標準入力
 Main(`
-1
-2 3
-test
+5 1000000000
+6 6 2 6 2
 `.replace('\n', ''))
