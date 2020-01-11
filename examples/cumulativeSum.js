@@ -2,14 +2,13 @@
 function Main(input) {
     var lines = input.split("\n");
     var n = Number(lines[0])
-	var As = lines[1].split(" ").map(el => Number(el));
-    var cumulativeSum = []
-    cumulativeSum.push(As[0])
-    As.reduce((pre, cur) => { cumulativeSum.push(pre + cur); return pre+cur})
-    // 100, 204, 306, 411, 514, 617, 718, 823, 927,,,
+	var A = lines[1].split(" ").map(el => Number(el));
+    var cumulativeSum = [0]
+    A.reduce((pre, cur) => { cumulativeSum.push(pre + cur); return pre+cur}, 0)
+    console.log(cumulativeSum)
     var diffs = []
-    for(var i = 0; i < n - 1; i++) {
-        diffs.push(Math.abs(cumulativeSum[i] - (cumulativeSum[n - 1] - cumulativeSum[i])))
+    for(var i = 0; i < n; i++) {
+        diffs.push(Math.abs(cumulativeSum[i] - (cumulativeSum[n] - cumulativeSum[i])))
     }
     console.log(Math.min(...diffs))
 }
@@ -21,6 +20,6 @@ Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 
 // テスト用の標準入力
 Main(`
-3
-2 4 3
+2
+2020202020 2020202020
 `.replace('\n', ''))
