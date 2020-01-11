@@ -16,4 +16,5 @@ Main(`
 3 3
 dxx
 axx
-cxx`.replace('\n', ''))
+cxx
+`.replace('\n', ''))
