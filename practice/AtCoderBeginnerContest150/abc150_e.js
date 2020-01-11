@@ -16,7 +16,6 @@ Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 
 // テスト用の標準入力
 Main(`
-1
-2 3
-test
+2 50
+6 10
 `.replace('\n', ''))
