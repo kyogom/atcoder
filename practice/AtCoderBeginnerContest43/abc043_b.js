@@ -1,8 +1,17 @@
 'use strict'
 function Main(lines) {
-	let n = Number(lines[0].split(' ')[0])
-
-	console.log(n)
+	let s = lines[0].split('')
+	let out = []
+	while(1) {
+		if(s.length <= 0) break
+		let char = s.shift()
+		if(char === 'B') {
+			out.pop()
+		} else {
+			out.push(char)
+		}
+	}
+	console.log(out.join(''))
 }
 
 /*
@@ -12,7 +21,5 @@ Main(require("fs").readFileSync("/dev/stdin", "utf8").trim().replace('\n', '').s
 
 // テスト用の標準入力
 Main(`
-1
-2 3
-test
+0BB1
 `.trim().replace('\n', '').split("\n"))
