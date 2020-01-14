@@ -1,12 +1,8 @@
-// inputに入力データ全体が入る
-function Main(input) {
-	var lines = input.split("\n");
-	var words = lines[0].split(" ");
-	var a = Number(lines[0]);
-	var b = Number(words[0]);
-	var c = Number(words[1]);
-	var s = lines[2];
-	console.log('%d %s',a+b+c,s);
+'use strict'
+function Main(lines) {
+	let n = Number(lines.split(' ')[0])
+
+	console.log(n)
 }
 
 /*
@@ -19,4 +15,4 @@ Main(`
 1
 2 3
 test
-`.replace('\n', ''))
+`.trim().replace('\n', '').split("\n"))
