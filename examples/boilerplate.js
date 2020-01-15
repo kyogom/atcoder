@@ -1,18 +1,12 @@
 'use strict'
-function Main(lines) {
-	let n = Number(lines[0].split(' ')[0])
+const main = arg => {
+	const input = arg.trim().split("\n");
+	let N = input[0].split(' ')[0]
+	let As = input[1].split(' ')
+}   
+// main(require('fs').readFileSync('/dev/stdin', 'utf8'));
 
-	console.log(n)
-}
-
-/*
-提出時はコメントアウトを外す
-Main(require("fs").readFileSync("/dev/stdin", "utf8").trim().replace('\n', '').split("\n"));
-*/
-
-// テスト用の標準入力
-Main(`
-1
-2 3
-test
-`.trim().replace('\n', '').split("\n"))
+main(`
+4
+-100 -100 -100 -100
+`)
