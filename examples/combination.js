@@ -1,19 +1,12 @@
-const combination = (nums, k) => {
-    let ans = [];
-    if (nums.length < k) {
-        return []
-    }
-    if (k === 1) {
-        for (let i = 0; i < nums.length; i++) {
-            ans[i] = [nums[i]]
-        }
-    } else {
-        for (let i = 0; i < nums.length - k + 1; i++) {
-            let row = combination(nums.slice(i + 1), k - 1);
-            for (let j = 0; j < row.length; j++) {
-                ans.push([nums[i]].concat(row[j]))
-            }
-        }
-    }
-    return ans;
-}
+const combinations = function(set) {
+    return (function acc(xs, set) {
+      var x = xs[0];
+      if(typeof x === "undefined")
+        return set;
+      for(var i = 0, l = set.length; i < l; ++i)
+        set.push(set[i].concat(x));
+      return acc(xs.slice(1), set);
+    })(set, [[]]).slice(1);
+  };
+
+console.log(combinations([0,1,2,3,4]))
