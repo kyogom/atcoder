@@ -1,3 +1,4 @@
+// wrong
 'use strict'
 const main = arg => {
 	const input = arg.trim().split("\n");
