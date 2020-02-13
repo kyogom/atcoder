@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 import sys
-
+import numpy as np
 
 def solve(N: int, M: int, a: "List[int]", b: "List[int]", c: "List[int]", d: "List[int]"):
+    for i, vv in enumerate(a):
+        dists = []
+        for j, ll in enumerate(c):
+            dists.append(abs(a[i] - c[j]) + abs(b[i] - d[j]))
+        print(np.argmin(dists) + 1)
     return
 
 

@@ -3,6 +3,7 @@ import sys
 
 
 def solve(A: int, B: int):
+    print(A + B - 24 if A + B >= 24 else A + B)
     return
 
 
