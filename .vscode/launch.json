@@ -12,6 +12,13 @@
                 "<node_internals>/**"
             ],
             "program": "${file}",
+        },
+        {
+            "type": "python",
+            "request": "launch",
+            "name": "Run currentfile python",
+            "program": "${file}",
+            "pythonPath": "/Users/apple/.pyenv/shims/python"
         }
     ]
 }
