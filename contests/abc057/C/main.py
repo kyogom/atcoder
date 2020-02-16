@@ -1,8 +1,20 @@
 #!/usr/bin/env python3
 import sys
+import numpy as np
 
+def list_prime(max):
+    primes = []
+    for i in range(1, max):
+        if max % i == 0:
+            primes.append(i)
+        if i >= np.sqrt(max):
+            break
+    if len(primes) <= 1:
+        primes.append(max)
+    return primes
 
 def solve(N: int):
+    print(len(str(max(int(N / list_prime(N)[-1]), list_prime(N)[-1]))))
     return
 
 
